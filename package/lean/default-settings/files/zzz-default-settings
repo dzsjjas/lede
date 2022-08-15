@@ -10,7 +10,7 @@ uci commit system
 uci set fstab.@global[0].anon_mount=1
 uci commit fstab
 
-uci set network.lan.ipaddr='192.168.2.50'
+uci set network.lan.ipaddr='192.168.2.10'
 uci set network.lan.netmask='255.255.255.0'
 uci set network.lan.gateway='192.168.2.1'
 uci set network.lan.broadcast='192.168.2.255'
