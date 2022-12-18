@@ -1,11 +1,15 @@
-# 欢迎来到 Lean 的 Openwrt 源码仓库
+# 欢迎来到 Lean 的 LEDE 源码仓库
 
-如何编译自己需要的 OpenWrt 固件 [English](./README_EN.md)
+如何编译自己需要的 LEDE 固件 [How to build your LEDE firmware](./README_EN.md)
 
 ## 官方讨论群
 如有技术问题需要讨论或者交流，欢迎加入以下群：
-1. QQ 讨论群： Op固件技术研究群 ,号码 891659613 ，加群链接：[点击加入](https://jq.qq.com/?_wv=1027&k=XL8SK5aC "Op固件技术研究群")
+1. QQ 讨论群：  Op固件技术研究群-2 号码 618992230 ,加群链接：[点击加入](https://jq.qq.com/?_wv=1027&k=Imt01vqy "Op固件技术研究群-2")
+Op固件技术研究群 ,号码 891659613 ，加群链接：[点击加入](https://jq.qq.com/?_wv=1027&k=XL8SK5aC "Op固件技术研究群")
 2. TG 讨论群： OP 编译官方大群 ，加群链接：[点击加入](https://t.me/JhKgAA6Hx1 "OP 编译官方大群")
+3. Rockchip RK3568 预编译固件发布 Release 下载更新地址 (包括 H68K )：<https://github.com/coolsnowwolf/lede/releases/tag/20220716>
+
+<a href ="https://item.taobao.com/item.htm?spm=a230r.1.14.26.4bb55247bX9SiV&id=692981063139&ns=1&abbucket=15#detail"><img src="https://github.com/coolsnowwolf/lede/blob/master/doc/h68k.jpg?raw=true" width=600  /></a>
 
 ## 注意
 
@@ -22,7 +26,7 @@
    ```bash
    sudo apt update -y
    sudo apt full-upgrade -y
-   sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
+   sudo apt install -y ack antlr3 aria2 asciidoc autoconf automake autopoint binutils bison build-essential \
    bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
    git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
    libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
@@ -48,7 +52,7 @@
    make V=s -j1
    ```
 
-本套代码保证肯定可以编译成功。里面包括了 R21 所有源代码，包括 IPK 的。
+本套代码保证肯定可以编译成功。里面包括了 R22 所有源代码，包括 IPK 的。
 
 你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！
 
@@ -127,13 +131,16 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 ## 软路由介绍
 
-友情推荐不恰饭：如果你在寻找一个低功耗小体积性能不错的 x86 / x64 路由器，我个人建议可以考虑小马v1 的铝合金版本
-(N3710 4千兆)：[页面介绍](https://item.taobao.com/item.htm?spm=a230r.1.14.20.144c763fRkK0VZ&id=561126544764)
+iKOOLCORE 硬酷R1 多网口小主机 - N5105/N6005 : Cube box, rest fun. 方寸之间，尽享乐趣
 
-![xm1](doc/xm5.jpg) ![xm2](doc/xm6.jpg)
+(商品介绍页面 - 硬酷科技（支持花呗）)：
+[优惠券链接](https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=2208215115814&activityId=85fbaf791c4b45e9aaf5ec8e3d1cb2a9)
+[下单链接](https://item.taobao.com/item.htm?ft=t&id=682987219699)
+
+[![r1](doc/r1.jpg)](https://item.taobao.com/item.htm?ft=t&id=682025492099)
 
 ## 捐贈
 
 如果你觉得此项目对你有帮助，可以捐助我们，以鼓励项目能持续发展，更加完善
 
-支付宝 ![alipay](doc/alipay_donate.jpg) 微信 ![wechat](doc/wechat_donate.jpg)
+ ![star](doc/star.png) 
