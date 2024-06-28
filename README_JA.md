@@ -265,6 +265,8 @@ PS > git clone git@github.com:coolsnowwolf/lede.git <your_local_lede_path>
    brew install gcc@11
    ```
 4. システム環境のアップデート:
+
+   -  MacのIntelシリコンバージョン
    ```bash
    echo 'export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"' >> ~/.bashrc
    echo 'export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"' >> ~/.bashrc
