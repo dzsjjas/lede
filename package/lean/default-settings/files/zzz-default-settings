@@ -18,6 +18,17 @@ uci commit system
 uci set fstab.@global[0].anon_mount=1
 uci commit fstab
 
+uci set network.lan.ipaddr='192.168.2.10'
+uci set network.lan.netmask='255.255.255.0'
+uci set network.lan.gateway='192.168.2.1'
+uci set network.lan.broadcast='192.168.2.255'
+uci set network.lan.dns='223.5.5.5'
+uci set network.lan.delegate='0'
+uci commit network
+
+uci set dhcp.lan.ignore='1'
+uci commit dhcp
+
 rm -f /usr/lib/lua/luci/view/admin_status/index/mwan.htm
 rm -f /usr/lib/lua/luci/view/admin_status/index/upnp.htm
 rm -f /usr/lib/lua/luci/view/admin_status/index/ddns.htm
