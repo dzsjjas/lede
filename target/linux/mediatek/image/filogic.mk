@@ -241,8 +241,7 @@ define Device/cmcc_rax3000m-emmc
   DEVICE_MODEL := RAX3000M (eMMC version)
   DEVICE_DTS := mt7981b-cmcc-rax3000m-emmc
   DEVICE_DTS_DIR := ../dts
-  DEVICE_PACKAGES := kmod-mt7981-firmware mt7981-wo-firmware kmod-usb3 \
-	automount f2fsck mkf2fs
+  DEVICE_PACKAGES := kmod-mt7981-firmware mt7981-wo-firmware kmod-usb3 f2fsck mkf2fs
   KERNEL := kernel-bin | lzma | fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
   KERNEL_INITRAMFS := kernel-bin | lzma | \
 	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 64k
@@ -255,7 +254,7 @@ define Device/cmcc_rax3000m-nand
   DEVICE_MODEL := RAX3000M (NAND version)
   DEVICE_DTS := mt7981b-cmcc-rax3000m-nand
   DEVICE_DTS_DIR := ../dts
-  DEVICE_PACKAGES := kmod-mt7981-firmware mt7981-wo-firmware kmod-usb3 automount
+  DEVICE_PACKAGES := kmod-mt7981-firmware mt7981-wo-firmware kmod-usb3
   UBINIZE_OPTS := -E 5
   BLOCKSIZE := 128k
   PAGESIZE := 2048
@@ -339,6 +338,35 @@ define Device/h3c_magic-nx30-pro
   DEVICE_PACKAGES := kmod-mt7981-firmware mt7981-wo-firmware
 endef
 TARGET_DEVICES += h3c_magic-nx30-pro
+
+define Device/hf_m7986r1-emmc
+  DEVICE_VENDOR := HF
+  DEVICE_MODEL := M7986R1 (eMMC)
+  DEVICE_DTS := mt7986a-hf-m7986r1-emmc
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-usb3 kmod-mt7921e kmod-usb-net-rndis kmod-usb-serial-option f2fsck mkf2fs
+  SUPPORTED_DEVICES += HF-M7986R1
+  KERNEL := kernel-bin | lzma | fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
+  KERNEL_INITRAMFS := kernel-bin | lzma | \
+	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 64k
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+endef
+TARGET_DEVICES += hf_m7986r1-emmc
+
+define Device/hf_m7986r1-nand
+  DEVICE_VENDOR := HF
+  DEVICE_MODEL := M7986R1 (NAND)
+  DEVICE_DTS := mt7986a-hf-m7986r1-nand
+  DEVICE_DTS_DIR := ../dts
+  UBINIZE_OPTS := -E 5
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_IN_UBI := 1
+  DEVICE_PACKAGES := kmod-usb3 kmod-mt7921e kmod-usb-net-rndis kmod-usb-serial-option
+  SUPPORTED_DEVICES += HF-M7986R1
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+endef
+TARGET_DEVICES += hf_m7986r1-nand
 
 define Device/imou_lc-hx3001
   DEVICE_VENDOR := IMOU
@@ -478,36 +506,6 @@ define Device/mediatek_mt7988a-rfb
 				  gzip
 endef
 TARGET_DEVICES += mediatek_mt7988a-rfb
-
-define Device/hf_m7986r1-emmc
-  DEVICE_VENDOR := HF
-  DEVICE_MODEL := M7986R1 (eMMC version)
-  DEVICE_DTS := mt7986a-hf-m7986r1-emmc
-  DEVICE_DTS_DIR := ../dts
-  DEVICE_PACKAGES := kmod-usb3 kmod-mt7921e kmod-usb-serial-option kmod-usb-net-rndis f2fsck mkf2fs
-  SUPPORTED_DEVICES += HF-M7986R1
-  KERNEL := kernel-bin | lzma | fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
-  KERNEL_INITRAMFS := kernel-bin | lzma | \
-	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 64k
-  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
-endef
-TARGET_DEVICES +=hf_m7986r1-emmc
-
-define Device/hf_m7986r1-nand
-  DEVICE_VENDOR := HF
-  DEVICE_MODEL := M7986R1 (NAND version)
-  DEVICE_DTS := mt7986a-hf-m7986r1-nand
-  DEVICE_DTS_DIR := ../dts
-  UBINIZE_OPTS := -E 5
-  BLOCKSIZE := 128k
-  PAGESIZE := 2048
-  IMAGE_SIZE := 116736k
-  KERNEL_IN_UBI := 1
-  DEVICE_PACKAGES := kmod-usb3 kmod-mt7921e kmod-usb-serial-option kmod-usb-net-rndis mmc-utils
-  SUPPORTED_DEVICES += HF-M7986R1
-  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
-endef
-TARGET_DEVICES +=hf_m7986r1-nand
 
 define Device/netcore_n60
   DEVICE_VENDOR := Netcore
