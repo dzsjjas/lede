@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rtw88-usb
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_DATE:=2024-04-10
@@ -43,6 +43,7 @@ define KernelPackage/rtl8723du
   TITLE:=Realtek RTL8723DU support
   DEPENDS+=+kmod-rtw88-usb +rtl8723du-firmware
   FILES:= \
+	$(PKG_BUILD_DIR)/rtw88_8723x.ko \
 	$(PKG_BUILD_DIR)/rtw_8723d.ko \
 	$(PKG_BUILD_DIR)/rtw_8723du.ko
   AUTOLOAD:=$(call AutoProbe,rtw_8723du)
