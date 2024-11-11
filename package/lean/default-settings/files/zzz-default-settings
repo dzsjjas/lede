@@ -24,6 +24,7 @@ uci set network.lan.gateway='192.168.2.1'
 uci set network.lan.broadcast='192.168.2.255'
 uci set network.lan.dns='223.5.5.5'
 uci set network.lan.delegate='0'
+uci set luci.sauth.sessiontime='86400'
 uci commit network
 
 uci set dhcp.lan.ignore='1'
